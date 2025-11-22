@@ -1,0 +1,12 @@
+/* index.css */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+:root {
+  --color-my-blue-dark: #0e95c1;
+  --color-my-blue-light: #bad4de;
+  --color-my-red-light: #f7f0f0;
+  --color-my-red-dark: #d02f40;
+  --color-my-gray: #1f1f1f;
+}
