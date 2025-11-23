@@ -4,6 +4,23 @@
   --color-mint-500: oklch(0.72 0.11 178);
 }
 
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 
 /* CSS custom properties must be declared in a valid selector (e.g. :root)
    so the browser exposes them globally. Replacing the invalid `@theme`
