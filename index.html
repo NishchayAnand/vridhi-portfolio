@@ -20,7 +20,11 @@
         </script>
         <style>
             html { scroll-behavior: smooth; scroll-padding-top: 72px; }
-            body { font-family: 'Courier PS', ui-monospace, SFMono-Regular, Menlo, monospace; }
+            body { 
+                font-family: 'Courier PS', ui-monospace, SFMono-Regular, Menlo, monospace;
+                background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 25%, #0f0f0f 50%, #151515 75%, #0a0a0a 100%);
+                background-attachment: fixed;
+            }
         </style>
 
         <!-- Added: basic hero animations + reduced-motion support -->
@@ -171,18 +175,7 @@ Interaction design & UX for wearables
 
 <span class="prompt"><span class="text-[#7ee0ff]">$</span> </span><span class="cursor" aria-hidden></span>
                                 </pre>
-                                <div class="mt-4 text-xs text-[#9aa7b2] font-mono">
-                                    <p class="mb-2">Try these commands:</p>
-                                    <div class="flex flex-wrap gap-2">
-                                        <button class="terminal-cmd px-2 py-1 bg-white/5 rounded hover:bg-white/10 transition" data-cmd="ls -la">ls -la</button>
-                                        <button class="terminal-cmd px-2 py-1 bg-white/5 rounded hover:bg-white/10 transition" data-cmd="./projects.sh">./projects.sh</button>
-                                        <button class="terminal-cmd px-2 py-1 bg-white/5 rounded hover:bg-white/10 transition" data-cmd="cat experience.json">cat experience.json</button>
-                                        <button class="terminal-cmd px-2 py-1 bg-white/5 rounded hover:bg-white/10 transition" data-cmd="clear">clear</button>
-                                    </div>
-                                </div>
-
                                 <div class="mt-6 flex gap-3">
-                                    <a href="mailto:youremail@example.com" class="px-4 py-2 bg-white text-[#1f1f1f] rounded font-medium">Contact</a>
                                     <a href="/assets/resume.pdf" download class="px-4 py-2 border border-white/20 text-[#c7e7f2] rounded">Download CV</a>
                                 </div>
                             </div>
