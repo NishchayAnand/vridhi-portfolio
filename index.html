@@ -69,10 +69,10 @@
             <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between text-[#d02f40]">
                 <a id="logo" href="#home" class="font-semibold text-lg">Vridhi Anand</a>
                 <nav class="hidden md:flex gap-6">
-                    <a href="#about" class="text-sm hover:text-indigo-600">About</a>
-                    <a href="#projects" class="text-sm hover:text-indigo-600">Projects</a>
-                    <a href="#gallery" class="text-sm hover:text-indigo-600">Gallery</a>
-                    <a href="#contact" class="text-sm hover:text-indigo-600">Contact</a>
+                    <a href="#about" class="text-sm hover:text-[#f7f0f0]">About</a>
+                    <a href="#projects" class="text-sm hover:text-[#f7f0f0]">Projects</a>
+                    <a href="#gallery" class="text-sm hover:text-[#f7f0f0]">Gallery</a>
+                    <a href="#contact" class="text-sm hover:text-[#f7f0f0]">Contact</a>
                 </nav>
                 <div class="md:hidden">
                     <button id="menuBtn" aria-label="Open menu" class="p-2 rounded-md hover:bg-gray-100">
@@ -91,7 +91,7 @@
         <main>
             <!-- Hero / Home Section: circular image left, content right -->
             <section id="home" class="relative min-h-screen flex items-center">
-                <div id="hero-container" class="w-full">
+                                <div id="hero-container" class="w-full">
                     <div class="flex flex-col md:flex-row items-center justify-center gap-8">
 
                         <div class="flex items-center justify-center mr-10">
@@ -105,6 +105,30 @@
                             <p class="text-xl font-bold text-[#f7f0f0] uppercase tracking-wider mb-3">Hello, I'm</p>
                             <h1 class="text-4xl md:text-6xl font-bold leading-tight text-[#f7f0f0]">Vridhi Anand</h1>
                             <p class="mt-4 text-[#f7f0f0]/50 max-w-2xl mx-auto md:mx-0">I'm a Fashion Technology student focusing on wearables, smart textiles, and interactive garments.</p>
+                            <div class="mt-6 flex items-center justify-center md:justify-start gap-3">
+                                <a href="https://twitter.com/yourhandle" target="_blank" rel="noopener noreferrer" aria-label="Open Twitter profile" title="Twitter" class="inline-flex items-center gap-2 px-3 py-2 rounded-full text-sm font-medium bg-white/5 text-[#1DA1F2] hover:bg-white/10 transition">
+                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                        <path d="M22 5.92c-.63.28-1.3.47-2.01.55a3.5 3.5 0 0 0 1.54-1.94 7 7 0 0 1-2.23.85 3.48 3.48 0 0 0-5.93 3.17A9.87 9.87 0 0 1 3.16 4.9a3.48 3.48 0 0 0 1.08 4.65 3.44 3.44 0 0 1-1.58-.44v.04a3.48 3.48 0 0 0 2.79 3.41 3.5 3.5 0 0 1-.92.12c-.22 0-.44-.02-.65-.06a3.49 3.49 0 0 0 3.25 2.42A7 7 0 0 1 2 19.54 9.86 9.86 0 0 0 7.29 21c6.58 0 10.18-5.45 10.18-10.18v-.46A7.28 7.28 0 0 0 22 5.92z"/>
+                                    </svg>
+                                    <span class="hidden sm:inline">Twitter</span>
+                                </a>
+
+                                <a href="https://instagram.com/yourhandle" target="_blank" rel="noopener noreferrer" aria-label="Open Instagram profile" title="Instagram" class="inline-flex items-center gap-2 px-3 py-2 rounded-full text-sm font-medium bg-white/5 text-pink-400 hover:bg-white/10 transition">
+                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                        <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.5"></rect>
+                                        <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"></circle>
+                                        <circle cx="17.5" cy="6.5" r="0.75" fill="currentColor"></circle>
+                                    </svg>
+                                    <span class="hidden sm:inline">Instagram</span>
+                                </a>
+
+                                <a href="https://www.linkedin.com/in/yourhandle" target="_blank" rel="noopener noreferrer" aria-label="Open LinkedIn profile" title="LinkedIn" class="inline-flex items-center gap-2 px-3 py-2 rounded-full text-sm font-medium bg-white/5 text-[#0A66C2] hover:bg-white/10 transition">
+                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                        <path d="M4.98 3.5a2.5 2.5 0 1 0 .02 0zM3.5 8.5h3v11h-3zM10 8.5h2.85v1.5h.04c.4-.76 1.38-1.56 2.85-1.56 3.05 0 3.61 2.01 3.61 4.63v6.43h-3v-5.7c0-1.36-.03-3.11-1.9-3.11-1.9 0-2.19 1.48-2.19 3v5.81h-3z"/>
+                                    </svg>
+                                    <span class="hidden sm:inline">LinkedIn</span>
+                                </a>
+                            </div>
                         </div>
 
                     </div>
@@ -130,8 +154,10 @@ Vridhi Anand — Fashion Technology Student
 <span class="text-[#7ee0ff]">$ cat about.md</span>
 I combine textile craft with embedded electronics to build garments that sense and respond. I focus on sustainable materials, durable construction, and human-centered wearable interaction design.
 
-<span class="text-[#7ee0ff]">$ ls projects</span>
-glow-jacket  soft-circuits  material-research
+<span class="text-[#7ee0ff]">$ skills</span>
+Wearables & e-textiles      Embedded electronics (Arduino, ESP32)       Soft circuits & conductive sewing
+Smart textiles & sensor integration     Rapid prototyping & fabrication     Sustainability & material research
+Interaction design & UX for wearables
 
 <span class="prompt"><span class="text-[#7ee0ff]">$</span> </span><span class="cursor" aria-hidden></span>
                                 </pre>
@@ -146,41 +172,207 @@ glow-jacket  soft-circuits  material-research
                 </div>
             </section>
 
-            <section id="projects" class="min-h-screen flex items-center bg-amber-50">
-                <div class="max-w-4xl mx-auto px-6 py-20 w-full text-center">
-                    <h2 class="text-2xl font-bold mb-6">Selected Projects</h2>
-                    <p class="text-sm text-gray-600 max-w-2xl mx-auto mb-8">A short selection of recent work focusing on wearables, e-textiles and material research. For full case studies, reach out.</p>
+            <section id="projects" class="min-h-screen flex flex-col">
+                <h2 class="text-lg font-bold font-mono mt-20 ml-20 mb-10 text-[#f7f0f0]">// Top Projects</h2>
+                <div class="max-w-5xl mx-auto py-10 w-full text-center">
+                    
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <!-- Card 1: Code-editor style -->
+                        <article class="animate-on-scroll opacity-0 translate-y-6 w-full sm:w-120 rounded-xl overflow-hidden shadow-sm border border-gray-700 bg-[#0b1220] text-white focus:outline-none focus:ring-2 focus:ring-indigo-200" tabindex="0" role="article" aria-labelledby="card-code-1-title">
+                            <!-- Editor top bar -->
+                            <div class="flex items-center gap-3 px-4 py-2 bg-[#0f1724] border-b border-gray-800">
+                                <div class="text-xs text-gray-500">Glow Jacket — addressable LEDs</div>
+                            </div>
 
-                    <div class="flex flex-col sm:flex-row gap-6 justify-center">
-                        <!-- Card 1 -->
-                        <article class="animate-on-scroll opacity-0 translate-y-6 bg-white rounded-xl shadow-sm w-full sm:w-100 overflow-hidden border border-gray-100 hover:shadow-xl transition transform hover:-translate-y-1 hover:scale-[1.01] focus:outline-none focus:ring-2 focus:ring-indigo-200" tabindex="0" role="article" aria-labelledby="card1-title">
-                            <div class="h-36 bg-gradient-to-tr from-indigo-500 via-indigo-600 to-indigo-700 flex items-end p-4"></div> 
-                            <div class="p-5 flex flex-col justify-between">
-                                <div>
-                                    <h3 id="card1-title" class="font-semibold text-lg text-gray-900 mb-2">Glow Jacket</h3>
-                                    <p class="text-sm text-gray-600 mb-4">Addressable LEDs with washable circuits.</p>
+                            <!-- Code pane -->
+                            <div class="p-4">
+                                <div class="flex text-sm leading-relaxed font-mono">
+                                    <!-- line numbers -->
+                                    <ol class="select-none pr-3 text-right text-gray-600" aria-hidden>
+                                        <li>1</li>
+                                        <li>2</li>
+                                        <li>3</li>
+                                        <li>4</li>
+                                        <li>5</li>
+                                        <li>6</li>
+                                        <li>7</li>
+                                        <li>8</li>
+                                        <li>9</li>
+                                        <li>10</li>
+                                        <li>11</li>
+                                        <li>12</li>
+                                        <li>13</li>
+                                    </ol>
+
+                                    <!-- code content -->
+                                    <div class="pl-4 text-left flex-1">
+                                        <pre class="whitespace-pre-wrap">
+<span class="text-[#7ee0ff]">// Project Description</span>
+
+<span class="text-[#bad4de]">Glow Jacket — an interactive wearable that integrates addressable LEDs (WS2812) with motion and touch sensors to create responsive lighting patterns.</span>
+
+<span class="text-[#bad4de]">Focus: low-power design, durable conductive sewing, and wearable comfort.</span>
+                                        </pre>
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="mt-4 flex items-center justify-between text-xs text-gray-400">
+                                    <div class="text-xs text-gray-500">● auto-saved</div>
+                                    <div class="flex gap-2">
+                                        <a href="#" class="px-2 py-1 rounded bg-white/5 hover:bg-white/8">View</a>
+                                        <a href="#" class="px-2 py-1 rounded bg-white/5 hover:bg-white/8">Case</a>
+                                    </div>
                                 </div>
                             </div>
                         </article>
 
-                        <!-- Card 2 -->
-                        <article class="animate-on-scroll opacity-0 translate-y-6 bg-white rounded-xl shadow-sm w-full sm:w-100 overflow-hidden border border-gray-100 hover:shadow-xl transition transform hover:-translate-y-1 hover:scale-[1.01] focus:outline-none focus:ring-2 focus:ring-indigo-200" tabindex="0" role="article" aria-labelledby="card1-title">
-                            <div class="h-36 bg-gradient-to-tr from-indigo-500 via-indigo-600 to-indigo-700 flex items-end p-4"></div> 
-                            <div class="p-5 flex flex-col justify-between">
-                                <div>
-                                    <h3 id="card1-title" class="font-semibold text-lg text-gray-900 mb-2">Glow Jacket</h3>
-                                    <p class="text-sm text-gray-600 mb-4">Addressable LEDs with washable circuits.</p>
+                        <!-- Card 2: Code-editor style -->
+                        <article class="animate-on-scroll opacity-0 translate-y-6 w-full sm:w-120 rounded-xl overflow-hidden shadow-sm border border-gray-700 bg-[#0b1220] text-white focus:outline-none focus:ring-2 focus:ring-indigo-200" tabindex="0" role="article" aria-labelledby="card-code-1-title">
+                            <!-- Editor top bar -->
+                            <div class="flex items-center gap-3 px-4 py-2 bg-[#0f1724] border-b border-gray-800">
+                                <div class="text-xs text-gray-500">Glow Jacket — addressable LEDs</div>
+                            </div>
+
+                            <!-- Code pane -->
+                            <div class="p-4">
+                                <div class="flex text-sm leading-relaxed font-mono">
+                                    <!-- line numbers -->
+                                    <ol class="select-none pr-3 text-right text-gray-600" aria-hidden>
+                                        <li>1</li>
+                                        <li>2</li>
+                                        <li>3</li>
+                                        <li>4</li>
+                                        <li>5</li>
+                                        <li>6</li>
+                                        <li>7</li>
+                                        <li>8</li>
+                                        <li>9</li>
+                                        <li>10</li>
+                                        <li>11</li>
+                                        <li>12</li>
+                                        <li>13</li>
+                                    </ol>
+
+                                    <!-- code content -->
+                                    <div class="pl-4 text-left flex-1">
+                                        <pre class="whitespace-pre-wrap">
+<span class="text-[#7ee0ff]">// Project Description</span>
+
+<span class="text-[#bad4de]">Glow Jacket — an interactive wearable that integrates addressable LEDs (WS2812) with motion and touch sensors to create responsive lighting patterns.</span>
+
+<span class="text-[#bad4de]">Focus: low-power design, durable conductive sewing, and wearable comfort.</span>
+                                        </pre>
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="mt-4 flex items-center justify-between text-xs text-gray-400">
+                                    <div class="text-xs text-gray-500">● auto-saved</div>
+                                    <div class="flex gap-2">
+                                        <a href="#" class="px-2 py-1 rounded bg-white/5 hover:bg-white/8">View</a>
+                                        <a href="#" class="px-2 py-1 rounded bg-white/5 hover:bg-white/8">Case</a>
+                                    </div>
                                 </div>
                             </div>
                         </article>
 
-                        <!-- Card 3 -->
-                        <article class="animate-on-scroll opacity-0 translate-y-6 bg-white rounded-xl shadow-sm w-full sm:w-100 overflow-hidden border border-gray-100 hover:shadow-xl transition transform hover:-translate-y-1 hover:scale-[1.01] focus:outline-none focus:ring-2 focus:ring-indigo-200" tabindex="0" role="article" aria-labelledby="card1-title">
-                            <div class="h-36 bg-gradient-to-tr from-indigo-500 via-indigo-600 to-indigo-700 p-4"></div> 
-                            <div class="p-5 flex flex-col justify-between">
-                                <div>
-                                    <h3 id="card1-title" class="font-semibold text-lg text-gray-900 mb-2">Glow Jacket</h3>
-                                    <p class="text-sm text-gray-600 mb-4">Addressable LEDs with washable circuits.</p>
+                        <!-- Card 3: Code-editor style -->
+                        <article class="animate-on-scroll opacity-0 translate-y-6 w-full sm:w-120 rounded-xl overflow-hidden shadow-sm border border-gray-700 bg-[#0b1220] text-white focus:outline-none focus:ring-2 focus:ring-indigo-200" tabindex="0" role="article" aria-labelledby="card-code-1-title">
+                            <!-- Editor top bar -->
+                            <div class="flex items-center gap-3 px-4 py-2 bg-[#0f1724] border-b border-gray-800">
+                                <div class="text-xs text-gray-500">Glow Jacket — addressable LEDs</div>
+                            </div>
+
+                            <!-- Code pane -->
+                            <div class="p-4">
+                                <div class="flex text-sm leading-relaxed font-mono">
+                                    <!-- line numbers -->
+                                    <ol class="select-none pr-3 text-right text-gray-600" aria-hidden>
+                                        <li>1</li>
+                                        <li>2</li>
+                                        <li>3</li>
+                                        <li>4</li>
+                                        <li>5</li>
+                                        <li>6</li>
+                                        <li>7</li>
+                                        <li>8</li>
+                                        <li>9</li>
+                                        <li>10</li>
+                                        <li>11</li>
+                                        <li>12</li>
+                                        <li>13</li>
+                                    </ol>
+
+                                    <!-- code content -->
+                                    <div class="pl-4 text-left flex-1">
+                                        <pre class="whitespace-pre-wrap">
+<span class="text-[#7ee0ff]">// Project Description</span>
+
+<span class="text-[#bad4de]">Glow Jacket — an interactive wearable that integrates addressable LEDs (WS2812) with motion and touch sensors to create responsive lighting patterns.</span>
+
+<span class="text-[#bad4de]">Focus: low-power design, durable conductive sewing, and wearable comfort.</span>
+                                        </pre>
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="mt-4 flex items-center justify-between text-xs text-gray-400">
+                                    <div class="text-xs text-gray-500">● auto-saved</div>
+                                    <div class="flex gap-2">
+                                        <a href="#" class="px-2 py-1 rounded bg-white/5 hover:bg-white/8">View</a>
+                                        <a href="#" class="px-2 py-1 rounded bg-white/5 hover:bg-white/8">Case</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Card 4: Code-editor style -->
+                        <article class="animate-on-scroll opacity-0 translate-y-6 w-full sm:w-120 rounded-xl overflow-hidden shadow-sm border border-gray-700 bg-[#0b1220] text-white focus:outline-none focus:ring-2 focus:ring-indigo-200" tabindex="0" role="article" aria-labelledby="card-code-1-title">
+                            <!-- Editor top bar -->
+                            <div class="flex items-center gap-3 px-4 py-2 bg-[#0f1724] border-b border-gray-800">
+                                <div class="text-xs text-gray-500">Glow Jacket — addressable LEDs</div>
+                            </div>
+
+                            <!-- Code pane -->
+                            <div class="p-4">
+                                <div class="flex text-sm leading-relaxed font-mono">
+                                    <!-- line numbers -->
+                                    <ol class="select-none pr-3 text-right text-gray-600" aria-hidden>
+                                        <li>1</li>
+                                        <li>2</li>
+                                        <li>3</li>
+                                        <li>4</li>
+                                        <li>5</li>
+                                        <li>6</li>
+                                        <li>7</li>
+                                        <li>8</li>
+                                        <li>9</li>
+                                        <li>10</li>
+                                        <li>11</li>
+                                        <li>12</li>
+                                        <li>13</li>
+                                    </ol>
+
+                                    <!-- code content -->
+                                    <div class="pl-4 text-left flex-1">
+                                        <pre class="whitespace-pre-wrap">
+<span class="text-[#7ee0ff]">// Project Description</span>
+
+<span class="text-[#bad4de]">Glow Jacket — an interactive wearable that integrates addressable LEDs (WS2812) with motion and touch sensors to create responsive lighting patterns.</span>
+
+<span class="text-[#bad4de]">Focus: low-power design, durable conductive sewing, and wearable comfort.</span>
+                                        </pre>
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="mt-4 flex items-center justify-between text-xs text-gray-400">
+                                    <div class="text-xs text-gray-500">● auto-saved</div>
+                                    <div class="flex gap-2">
+                                        <a href="#" class="px-2 py-1 rounded bg-white/5 hover:bg-white/8">View</a>
+                                        <a href="#" class="px-2 py-1 rounded bg-white/5 hover:bg-white/8">Case</a>
+                                    </div>
                                 </div>
                             </div>
                         </article>
