@@ -67,15 +67,19 @@
             .contact-ambient::after {
                 content: '';
                 position: absolute;
-                inset: -30%;
+                top: 50%;
+                left: 50%;
+                width: 160%;
+                height: 160%;
                 pointer-events: none;
                 mix-blend-mode: screen;
                 opacity: .32;
                 animation: gradientOrbit 22s linear infinite;
-                background: radial-gradient(circle at top left, rgba(255,255,255,.22), transparent 65%);
+                transform-origin: center;
+                background: radial-gradient(circle at center, rgba(255,255,255,.22), transparent 65%);
             }
             .contact-ambient::after {
-                background: radial-gradient(circle at bottom right, rgba(14,149,193,.4), transparent 70%);
+                background: radial-gradient(circle at center, rgba(14,149,193,.4), transparent 70%);
                 animation-duration: 18s;
                 animation-direction: reverse;
                 opacity: .25;
