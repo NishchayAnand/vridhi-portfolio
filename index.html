@@ -39,6 +39,58 @@
                 to   { opacity: 1; transform: translateX(0); }
             }
 
+            /* project cards: ambient shimmer + hover lift */
+            @keyframes projectGlow {
+                0% { opacity: .12; transform: translate(-20%, -20%) rotate(0deg) scale(.85); }
+                50% { opacity: .32; transform: translate(-10%, -12%) rotate(180deg) scale(1); }
+                100% { opacity: .12; transform: translate(-20%, -20%) rotate(360deg) scale(.85); }
+            }
+            .project-card {
+                position: relative;
+                overflow: hidden;
+            }
+            .project-card::after {
+                content: '';
+                position: absolute;
+                inset: -35%;
+                background: radial-gradient(circle at center, rgba(14,149,193,.35), transparent 55%);
+                opacity: .18;
+                animation: projectGlow 14s ease-in-out infinite;
+                transition: opacity 320ms ease;
+                pointer-events: none;
+            }
+            .project-card:hover::after { opacity: .42; }
+            .project-card:hover {
+                transform: translateY(-8px) scale(1.01);
+                box-shadow: 0 20px 42px -24px rgba(14,149,193,.45);
+            }
+            .project-card {
+                transition: transform 320ms cubic-bezier(.22,1,.36,1), box-shadow 320ms cubic-bezier(.22,1,.36,1);
+                will-change: transform;
+            }
+
+            .project-card .code-lines span {
+                display: inline-block;
+                color: rgba(186,212,222,.85);
+            }
+            @supports (background-clip: text) or (-webkit-background-clip: text) {
+                .project-card .code-lines span {
+                    background: linear-gradient(120deg, rgba(255,255,255,.1), rgba(14,149,193,.35), rgba(255,255,255,.1));
+                    background-size: 220% 220%;
+                    background-clip: text;
+                    -webkit-background-clip: text;
+                    color: transparent;
+                    animation: shimmer 6s ease-in-out infinite;
+                }
+                .project-card:nth-of-type(2n) .code-lines span { animation-delay: 1.8s; }
+                .project-card:nth-of-type(3n) .code-lines span { animation-delay: 3.2s; }
+            }
+
+            @keyframes shimmer {
+                0%, 100% { background-position: 0% 50%; }
+                50% { background-position: 100% 50%; }
+            }
+
             .animate-hero-img {
                 animation: heroImg 720ms cubic-bezier(.22,1,.36,1) both;
             }
@@ -91,6 +143,9 @@
                 .animate-hero-img,
                 .animate-hero-content,
                 .hero-img-wrap img,
+                .project-card,
+                .project-card::after,
+                .project-card .code-lines span,
                 .contact-ambient::before,
                 .contact-ambient::after { animation: none !important; transition: none !important; transform: none !important; }
             }
@@ -221,7 +276,7 @@ Creative | Visual Boards | Time Management | Coding (Python, SQL, JavaScript) | 
                     
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <!-- Card 1: Code-editor style -->
-                        <article class="animate-on-scroll opacity-0 translate-y-6 w-full sm:w-120 rounded-xl overflow-hidden shadow-sm border border-gray-700 bg-[#0b1220] text-white focus:outline-none focus:ring-2 focus:ring-indigo-200 cursor-pointer hover:border-[#0e95c1] transition-all" tabindex="0" role="article">
+                        <article class="animate-on-scroll project-card opacity-0 translate-y-6 w-full sm:w-120 rounded-xl overflow-hidden shadow-sm border border-gray-700 bg-[#0b1220] text-white focus:outline-none focus:ring-2 focus:ring-indigo-200 cursor-pointer hover:border-[#0e95c1] transition-all" tabindex="0" role="article">
                             <!-- Editor top bar -->
                             <div class="flex items-center gap-3 px-4 py-2 bg-[#0f1724] border-b border-gray-800">
                                 <div class="text-xs text-gray-500">Project1.py</div>
@@ -270,7 +325,7 @@ Creative | Visual Boards | Time Management | Coding (Python, SQL, JavaScript) | 
                         </article>
 
                         <!-- Card 2: Posture Monitor -->
-                        <article class="animate-on-scroll opacity-0 translate-y-6 w-full sm:w-120 rounded-xl overflow-hidden shadow-sm border border-gray-700 bg-[#0b1220] text-white focus:outline-none focus:ring-2 focus:ring-indigo-200 cursor-pointer hover:border-[#0e95c1] transition-all" tabindex="0" role="article">
+                        <article class="animate-on-scroll project-card opacity-0 translate-y-6 w-full sm:w-120 rounded-xl overflow-hidden shadow-sm border border-gray-700 bg-[#0b1220] text-white focus:outline-none focus:ring-2 focus:ring-indigo-200 cursor-pointer hover:border-[#0e95c1] transition-all" tabindex="0" role="article">
                             <!-- Editor top bar -->
                             <div class="flex items-center gap-3 px-4 py-2 bg-[#0f1724] border-b border-gray-800">
                                 <div class="text-xs text-gray-500">Project2.py</div>
@@ -319,7 +374,7 @@ Creative | Visual Boards | Time Management | Coding (Python, SQL, JavaScript) | 
                         </article>
 
                         <!-- Card 3: Eco Dyeing Research -->
-                        <article class="animate-on-scroll opacity-0 translate-y-6 w-full sm:w-120 rounded-xl overflow-hidden shadow-sm border border-gray-700 bg-[#0b1220] text-white focus:outline-none focus:ring-2 focus:ring-indigo-200 cursor-pointer hover:border-[#0e95c1] transition-all" tabindex="0" role="article">
+                        <article class="animate-on-scroll project-card opacity-0 translate-y-6 w-full sm:w-120 rounded-xl overflow-hidden shadow-sm border border-gray-700 bg-[#0b1220] text-white focus:outline-none focus:ring-2 focus:ring-indigo-200 cursor-pointer hover:border-[#0e95c1] transition-all" tabindex="0" role="article">
                             <!-- Editor top bar -->
                             <div class="flex items-center gap-3 px-4 py-2 bg-[#0f1724] border-b border-gray-800">
                                 <div class="text-xs text-gray-500">Project3.py</div>
@@ -368,7 +423,7 @@ Creative | Visual Boards | Time Management | Coding (Python, SQL, JavaScript) | 
                         </article>
 
                         <!-- Card 4: Interactive Scarf -->
-                        <article class="animate-on-scroll opacity-0 translate-y-6 w-full sm:w-120 rounded-xl overflow-hidden shadow-sm border border-gray-700 bg-[#0b1220] text-white focus:outline-none focus:ring-2 focus:ring-indigo-200 cursor-pointer hover:border-[#0e95c1] transition-all" tabindex="0" role="article">
+                        <article class="animate-on-scroll project-card opacity-0 translate-y-6 w-full sm:w-120 rounded-xl overflow-hidden shadow-sm border border-gray-700 bg-[#0b1220] text-white focus:outline-none focus:ring-2 focus:ring-indigo-200 cursor-pointer hover:border-[#0e95c1] transition-all" tabindex="0" role="article">
                             <!-- Editor top bar -->
                             <div class="flex items-center gap-3 px-4 py-2 bg-[#0f1724] border-b border-gray-800">
                                 <div class="text-xs text-gray-500">Project4.py</div>
