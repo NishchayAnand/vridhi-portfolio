@@ -56,11 +56,39 @@
                 transform: scale(1.03);
             }
 
+            /* Contact section glow */
+            @keyframes gradientOrbit {
+                0% { transform: translate(-50%, -50%) rotate(0deg); }
+                50% { transform: translate(-45%, -55%) rotate(180deg); }
+                100% { transform: translate(-50%, -50%) rotate(360deg); }
+            }
+            .contact-ambient { position: relative; overflow: hidden; }
+            .contact-ambient::before,
+            .contact-ambient::after {
+                content: '';
+                position: absolute;
+                inset: -30%;
+                pointer-events: none;
+                mix-blend-mode: screen;
+                opacity: .32;
+                animation: gradientOrbit 22s linear infinite;
+                background: radial-gradient(circle at top left, rgba(255,255,255,.22), transparent 65%);
+            }
+            .contact-ambient::after {
+                background: radial-gradient(circle at bottom right, rgba(14,149,193,.4), transparent 70%);
+                animation-duration: 18s;
+                animation-direction: reverse;
+                opacity: .25;
+            }
+            .contact-ambient > * { position: relative; z-index: 1; }
+
             /* respect user preference for reduced motion */
             @media (prefers-reduced-motion: reduce) {
                 .animate-hero-img,
                 .animate-hero-content,
-                .hero-img-wrap img { animation: none !important; transition: none !important; }
+                .hero-img-wrap img,
+                .contact-ambient::before,
+                .contact-ambient::after { animation: none !important; transition: none !important; transform: none !important; }
             }
         </style>
         <link rel="stylesheet" href="./index.css">
@@ -189,7 +217,7 @@ Creative | Visual Boards | Time Management | Coding (Python, SQL, JavaScript) | 
                     
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <!-- Card 1: Code-editor style -->
-                        <article class="animate-on-scroll opacity-0 translate-y-6 w-full sm:w-120 rounded-xl overflow-hidden shadow-sm border border-gray-700 bg-[#0b1220] text-white focus:outline-none focus:ring-2 focus:ring-indigo-200" tabindex="0" role="article" aria-labelledby="card-code-1-title">
+                        <article class="animate-on-scroll opacity-0 translate-y-6 w-full sm:w-120 rounded-xl overflow-hidden shadow-sm border border-gray-700 bg-[#0b1220] text-white focus:outline-none focus:ring-2 focus:ring-indigo-200 cursor-pointer hover:border-[#0e95c1] transition-all" tabindex="0" role="article">
                             <!-- Editor top bar -->
                             <div class="flex items-center gap-3 px-4 py-2 bg-[#0f1724] border-b border-gray-800">
                                 <div class="text-xs text-gray-500">Project1.py</div>
@@ -396,7 +424,7 @@ Creative | Visual Boards | Time Management | Coding (Python, SQL, JavaScript) | 
                         <div class="overflow-hidden rounded-3xl border border-white/10 bg-gray-900/70">
                             <div class="flex transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]" data-exp-track>
                                 <div class="w-full shrink-0 px-1 md:px-3">
-                                    <article class="group relative p-10 transition-all duration-300 hover:border-cyan-400 h-full">
+                                    <article class="group relative p-12 transition-all duration-300 hover:border-cyan-400 h-full">
         
                                         <!-- Header -->
                                         <div class="flex flex-wrap items-start justify-between gap-4 mb-6">
@@ -439,7 +467,7 @@ Creative | Visual Boards | Time Management | Coding (Python, SQL, JavaScript) | 
                                     </article>
                                 </div>
                                 <div class="w-full shrink-0 px-1 md:px-3">
-                                    <article class="group relative p-10 transition-all duration-300 hover:border-cyan-400 h-full">
+                                    <article class="group relative p-12 transition-all duration-300 hover:border-cyan-400 h-full">
 
                                         <!-- Header -->
                                         <div class="flex flex-wrap items-start justify-between gap-4 mb-6">
@@ -498,13 +526,13 @@ Creative | Visual Boards | Time Management | Coding (Python, SQL, JavaScript) | 
                         </button>
 
                         <div class="flex justify-center gap-3 mt-10" data-exp-dots>
-                            <button type="button" data-exp-dot="0" class="exp-dot h-2.5 w-2.5 rounded-full border border-white/20 bg-white/10 opacity-60 transition-all duration-300 cursor-pointer" aria-label="Go to experience 1"></button>
-                            <button type="button" data-exp-dot="1" class="exp-dot h-2.5 w-2.5 rounded-full border border-white/20 bg-white/10 opacity-60 transition-all duration-300 cursor-pointer" aria-label="Go to experience 2"></button>
+                            <button type="button" data-exp-dot="0" class="h-2.5 w-2.5 rounded-full border border-white/20 bg-white/10 opacity-60 transition-all duration-300 cursor-pointer" aria-label="Go to experience 1"></button>
+                            <button type="button" data-exp-dot="1" class="h-2.5 w-2.5 rounded-full border border-white/20 bg-white/10 opacity-60 transition-all duration-300 cursor-pointer" aria-label="Go to experience 2"></button>
                         </div>
                     </div>
                 </section>
 
-                <section id="contact" class="relative bg-[#d02f40] text-white py-25 flex items-center m-15 rounded-2xl">
+                <section id="contact" class="relative bg-[#d02f40] text-white py-25 flex items-center m-15 rounded-2xl contact-ambient">
                     <!-- Panda GIF in bottom left corner -->
                     
                     
@@ -608,6 +636,7 @@ Creative | Visual Boards | Time Management | Coding (Python, SQL, JavaScript) | 
                         dot.classList.toggle('bg-white/10', !active);
                         dot.classList.toggle('border-white/20', !active);
                         dot.classList.toggle('opacity-60', !active);
+                        dot.setAttribute('aria-current', active ? 'true' : 'false');
                     });
                 }
 
