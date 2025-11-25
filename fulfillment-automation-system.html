@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Glow Jacket - Vridhi Anand</title>
+    <title>Fulfillment Automation System — Vridhi Anand</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="./index.css">
     <style>
@@ -15,7 +15,7 @@
 <body class="text-gray-900 antialiased bg-[#1f1f1f]">
     <header class="sticky top-0 z-40 backdrop-blur-xl bg-black/30 border-b border-white/5">
         <div class="max-w-5xl mx-auto px-6 py-6">
-            <a href="index.html" class="inline-flex items-center gap-2 text-gray-400 hover:text-cyan-400 transition-colors group">
+            <a href="index.html" class="inline-flex items-center gap-2 text-gray-400 hover:text-green-400 transition-colors group">
                 <svg class="w-4 h-4 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
                 </svg>
@@ -27,61 +27,71 @@
     <main class="max-w-5xl mx-auto px-6 py-12 md:py-20">
         <article class="text-white">
             <div class="mb-16 animate-on-scroll opacity-0 translate-y-6" style="transition: opacity 0.6s ease, transform 0.6s ease;">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4 text-white tracking-tight">Glow Jacket</h1>
+                <h1 class="text-4xl md:text-5xl font-bold mb-4 text-white tracking-tight">Fulfillment Automation System</h1>
                 <div class="flex items-center gap-2 text-sm text-gray-500">
                     <span>2024</span>
                     <span>•</span>
-                    <span>Wearable Tech</span>
+                    <span>Supply Chain Tech</span>
                 </div>
             </div>
 
             <div class="mb-20 animate-on-scroll opacity-0 translate-y-6" style="transition: opacity 0.6s ease 0.1s, transform 0.6s ease 0.1s;">
-                <img src="https://via.placeholder.com/1200x600?text=Glow+Jacket" alt="Glow Jacket" class="w-full rounded-lg border border-white/5 shadow-2xl">
+                <img src="https://via.placeholder.com/1200x600?text=Fulfillment+Automation+System" alt="Fulfillment Automation System" class="w-full rounded-lg border border-white/5 shadow-2xl">
             </div>
 
             <div class="space-y-16">
                 <section class="animate-on-scroll opacity-0 translate-y-6" style="transition: opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s;">
-                    <h2 class="text-xl font-semibold text-white mb-6">Overview</h2>
+                    <h2 class="text-xl font-semibold text-white mb-6">Project Snapshot</h2>
                     <p class="text-gray-400 leading-relaxed text-lg max-w-3xl">
-                        An interactive wearable that integrates WS2812 addressable LEDs with motion and touch sensors to create responsive lighting patterns. The jacket features low-power design with rechargeable battery, durable conductive thread sewing for LED connections, and comfortable placement that doesn't interfere with movement.
+                        I built a lot-allocation assistant for a fulfillment floor that removes the manual guesswork from matching orders to fabric lots. The dashboard ingests daily requirement files, surfaces conflicts, and generates a queue of approved picks that warehouse teams can execute without cross-checking spreadsheets.
                     </p>
                 </section>
 
                 <section class="animate-on-scroll opacity-0 translate-y-6" style="transition: opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s;">
-                    <h2 class="text-xl font-semibold text-white mb-6">Technical Details</h2>
-                    <p class="text-gray-400 leading-relaxed text-lg max-w-3xl">
-                        Built with ESP32 for wireless control and custom animations. The design prioritizes durability and comfort, ensuring the technology integrates seamlessly into everyday wear.
-                    </p>
+                    <h2 class="text-xl font-semibold text-white mb-6">Workflow Design</h2>
+                    <ul class="space-y-4 text-gray-400 max-w-3xl">
+                        <li class="flex items-start gap-3">
+                            <span class="text-cyan-400 mt-1">→</span>
+                            <span>Single upload entry point that validates lot availability, size breaks, and reservation rules before the picking window opens.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-cyan-400 mt-1">→</span>
+                            <span>Interactive Streamlit screens highlight flagged orders, letting planners resolve shortages or substitute lots with a few clicks.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-cyan-400 mt-1">→</span>
+                            <span>Automated export sends the confirmed pick list to the warehouse in their existing format so no downstream change management was required.</span>
+                        </li>
+                    </ul>
                 </section>
 
                 <section class="animate-on-scroll opacity-0 translate-y-6" style="transition: opacity 0.6s ease 0.4s, transform 0.6s ease 0.4s;">
-                    <h2 class="text-xl font-semibold text-white mb-6">Key Features</h2>
-                    <ul class="space-y-3 text-gray-400 max-w-3xl">
+                    <h2 class="text-xl font-semibold text-white mb-6">Build Notes</h2>
+                    <p class="text-gray-400 leading-relaxed text-lg max-w-3xl">
+                        The stack combines FastAPI for the rules engine, Streamlit for rapid UI prototyping, and PostgreSQL for audit trails. Modular services handle data validation, allocation logic, and reporting, letting me iterate on planner feedback without touching the full pipeline each sprint.
+                    </p>
+                </section>
+
+                <section class="animate-on-scroll opacity-0 translate-y-6" style="transition: opacity 0.6s ease 0.5s, transform 0.6s ease 0.5s;">
+                    <h2 class="text-xl font-semibold text-white mb-6">Outcomes</h2>
+                    <ul class="space-y-4 text-gray-400 max-w-3xl">
                         <li class="flex items-start gap-3">
                             <span class="text-cyan-400 mt-1">→</span>
-                            <span>WS2812 addressable LED integration</span>
+                            <span>Cut lot-mixing incidents to nearly zero by enforcing reservation rules before picks leave the planning table.</span>
                         </li>
                         <li class="flex items-start gap-3">
                             <span class="text-cyan-400 mt-1">→</span>
-                            <span>Motion and touch sensor responsiveness</span>
+                            <span>Reduced daily planning time from 2 hours to under 30 minutes thanks to clear exception queues.</span>
                         </li>
                         <li class="flex items-start gap-3">
                             <span class="text-cyan-400 mt-1">→</span>
-                            <span>Low-power rechargeable battery system</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-cyan-400 mt-1">→</span>
-                            <span>Durable conductive thread construction</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-cyan-400 mt-1">→</span>
-                            <span>ESP32-based wireless control</span>
+                            <span>Documented API endpoints and data contracts so the tool can plug into ERP integrations when the team is ready.</span>
                         </li>
                     </ul>
                 </section>
             </div>
 
-            <div class="mt-24 pt-12 border-t border-white/5 animate-on-scroll opacity-0 translate-y-6" style="transition: opacity 0.6s ease 0.5s, transform 0.6s ease 0.5s;">
+            <div class="mt-24 pt-12 border-t border-white/5 animate-on-scroll opacity-0 translate-y-6" style="transition: opacity 0.6s ease 0.6s, transform 0.6s ease 0.6s;">
                 <a href="index.html#projects" class="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors group">
                     <svg class="w-4 h-4 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
@@ -97,11 +107,9 @@
     </footer>
 
     <script>
-        // Scroll reveal animation
         (function(){
             const els = document.querySelectorAll('.animate-on-scroll');
             if(!els.length) return;
-
             const io = new IntersectionObserver((entries)=>{
                 entries.forEach(entry => {
                     if(entry.isIntersecting){
@@ -111,7 +119,6 @@
                     }
                 });
             }, {threshold: 0.1});
-
             els.forEach(el => io.observe(el));
         })();
     </script>
