@@ -19,9 +19,19 @@
         .gutter {
             position: relative;
         }
+        .gutter li {
+            position: relative;
+            z-index: 1;
+            transition: color 300ms ease, text-shadow 300ms ease;
+        }
         .gutter li.active {
             color: #7ee0ff;
             font-weight: 600;
+            text-shadow: 0 0 8px rgba(126,224,255,0.6), 0 0 12px rgba(126,224,255,0.4);
+        }
+        .gutter li.passed {
+            color: #8ec5d6;
+            text-shadow: 0 0 4px rgba(126,224,255,0.3);
         }
         .gutter-badge {
             display: inline-block;
@@ -46,7 +56,7 @@
             pointer-events: none;
             z-index: 0;
         }
-        .gutter li { position: relative; z-index: 1; }
+
     </style>
 </head>
 <body class="text-gray-900 antialiased">
@@ -245,7 +255,21 @@
                 }
 
                 const index = Math.round(progress * (items.length - 1));
-                items.forEach((li, i) => li.classList.toggle('active', i === index));
+                
+                // Update glow effect: active line glows brightest, passed lines have subtle glow
+                items.forEach((li, i) => {
+                    li.classList.toggle('active', i === index);
+                    li.classList.toggle('passed', i < index);
+                });
+
+                // Move sliding indicator to active line
+                const indicator = document.getElementById('gutter-indicator');
+                if(indicator && items[index]) {
+                    const target = items[index];
+                    const y = target.offsetTop - (items[0]?.offsetTop || 0);
+                    indicator.style.transform = `translateY(${y}px)`;
+                    indicator.style.height = `${target.offsetHeight}px`;
+                }
 
                 if(badge) {
                     const remaining = Math.max(0, items.length - index - 1);
