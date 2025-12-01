@@ -26,6 +26,23 @@
                 background-attachment: fixed;
             }
         </style>
+        <!-- Landing overlay styles -->
+        <style>
+            .landing-overlay { position: fixed; inset: 0; z-index: 9999; overflow: hidden; display: flex; align-items: center; justify-content: center; pointer-events: all; background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 60%, #0a0a0a 100%); transition: opacity 1400ms cubic-bezier(.33,1,.68,1), transform 1400ms cubic-bezier(.33,1,.68,1); will-change: opacity, transform; }
+            .landing-overlay.fade-out { opacity: 0; transform: translateY(-16px); pointer-events: none; }
+            .parallax-layer { position: absolute; inset: 0; will-change: transform, opacity; pointer-events: none; }
+            .parallax-layer.layer-ambient { background: radial-gradient(circle at 25% 30%, rgba(14,149,193,.18), transparent 60%), radial-gradient(circle at 70% 70%, rgba(208,47,64,.15), transparent 65%); opacity: .6; }
+            .parallax-layer.layer-grid::before { content: ''; position: absolute; inset: 12% 6% 18% 6%; background-image: linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px); background-size: 42px 42px, 42px 42px; border-radius: 24px; filter: blur(.2px); }
+            .landing-content { position: relative; z-index: 2; text-align: center; padding: 2rem; animation: landingPulse 2s ease-in-out infinite; }
+            @keyframes landingPulse { 0%,100% { opacity:.7; transform: scale(1);} 50% { opacity:1; transform: scale(1.02);} }
+            .landing-title { font-size: clamp(2rem, 8vw, 4rem); font-weight: bold; background: linear-gradient(120deg, #f7f0f0, #d02f40, #f7f0f0); background-size: 200% 200%; background-clip: text; -webkit-background-clip: text; color: transparent; animation: gradientShift 3s ease-in-out infinite; margin-bottom: .75rem; }
+            @keyframes gradientShift { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+            .landing-subtitle { color: #f7f0f0; opacity: .7; font-size: clamp(.875rem, 2vw, 1.125rem); margin-bottom: 1.5rem; }
+            .scroll-indicator { display: flex; flex-direction: column; align-items: center; gap: .5rem; animation: bounce 2s infinite; }
+            @keyframes bounce { 0%,100% { transform: translateY(0);} 50% { transform: translateY(-10px);} }
+            .scroll-indicator svg { width: 2rem; height: 2rem; color: #d02f40; }
+            @media (prefers-reduced-motion: reduce) { .landing-content, .landing-title, .scroll-indicator, .parallax-layer { animation: none !important; transition: none !important; transform: none !important; } }
+        </style>
 
         <!-- Added: basic hero animations + reduced-motion support -->
         <style>
@@ -155,6 +172,20 @@
 
     <body class="text-gray-900 antialiased bg-[#1f1f1f]">
 
+        <!-- Landing Overlay -->
+        <div id="landingOverlay" class="landing-overlay">
+            <div class="parallax-layer layer-ambient" aria-hidden="true"></div>
+            <div class="parallax-layer layer-grid" aria-hidden="true"></div>
+            <div class="landing-content">
+                <h1 class="landing-title">Hello World</h1>
+                <p class="landing-subtitle">Scroll down to enter</p>
+                <div class="scroll-indicator">
+                    <!-- <span class="text-xs font-mono text-[#f7f0f0]/50">Scroll to explore</span> -->
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+                </div>
+            </div>
+        </div>
+
         <!-- Navbar -->
         <header class="bg-black/70 backdrop-blur sticky z-40 top-0 shadow-xs border border-black md:top-5 md:rounded-2xl md:max-w-6xl md:mx-auto">
             <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between text-[#d02f40]">
@@ -224,14 +255,14 @@
                         </div>
                         
                         <!-- Scroll Indicator -->
-                        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+                        <!-- <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
                             <a href="#about" class="flex flex-col items-center gap-2 text-[#f7f0f0]/50 hover:text-[#f7f0f0] transition-colors" aria-label="Scroll to about section">
                                 <span class="text-xs font-mono">Scroll Down</span>
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
                                 </svg>
                             </a>
-                        </div>
+                        </div> -->
 
                     </div>
                 </div>
@@ -828,6 +859,74 @@ Creative | Visual Boards | Time Management | Coding (Python, SQL, JavaScript) | 
 
                 goTo(0);
                 startAuto();
+            })();
+        </script>
+        <script>
+            // Landing overlay parallax + reveal on scroll
+            (function(){
+                const overlay = document.getElementById('landingOverlay');
+                if (!overlay) return;
+
+                const layers = Array.from(overlay.querySelectorAll('.parallax-layer'));
+                let revealed = false;
+                let hiding = false;
+                let topDebounceTimer = null;
+
+                function updateParallax() {
+                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    // Parallax strengths for layers
+                    layers.forEach((layer, idx) => {
+                        const strength = idx === 0 ? 0.05 : 0.02; // slowed parallax
+                        layer.style.transform = `translateY(${scrollTop * strength}px)`;
+                        layer.style.opacity = Math.max(0, 1 - scrollTop / 800);
+                    });
+
+                    // Fade out overlay after threshold
+                    if (!revealed && scrollTop > 80 && !hiding) {
+                        revealed = true;
+                        hiding = true;
+                        overlay.classList.add('fade-out');
+                        setTimeout(() => { overlay.style.display = 'none'; hiding = false; }, 1400);
+                        // Keep listeners active so we can detect returning to top
+                    }
+
+                    // Debounced reappearance at top
+                    if (revealed && scrollTop < 10 && !hiding) {
+                        if (topDebounceTimer) clearTimeout(topDebounceTimer);
+                        topDebounceTimer = setTimeout(() => {
+                            const currentTop = window.pageYOffset || document.documentElement.scrollTop;
+                            if (currentTop < 10) {
+                                // Show overlay in hidden state, then transition to visible
+                                overlay.style.display = '';
+                                // Ensure starting state is faded out
+                                overlay.classList.add('fade-out');
+                                revealed = false;
+                                // Next frame: remove fade-out to trigger smooth transition in
+                                requestAnimationFrame(() => {
+                                    overlay.classList.remove('fade-out');
+                                });
+                                // Reattach listeners
+                                window.addEventListener('scroll', onScroll, { passive: true });
+                                window.addEventListener('wheel', onScroll, { passive: true });
+                                window.addEventListener('touchmove', onScroll, { passive: true });
+                                updateParallax();
+                            }
+                        }, 150);
+                    } else if (topDebounceTimer && scrollTop >= 10) {
+                        clearTimeout(topDebounceTimer);
+                        topDebounceTimer = null;
+                    }
+                }
+
+                function onScroll(){
+                    updateParallax();
+                }
+
+                // Init
+                updateParallax();
+                window.addEventListener('scroll', onScroll, { passive: true });
+                window.addEventListener('wheel', onScroll, { passive: true });
+                window.addEventListener('touchmove', onScroll, { passive: true });
             })();
         </script>
         <script>
